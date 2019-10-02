@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
     user: "root",
 
     // Your password
-    password: "jimmy1121",
+    password: "",
     database: "bamazon"
 });
 
@@ -73,7 +73,8 @@ function questions() {
                                 function(e,r)
                                 {
                                     if(e) throw e;
-                                    console.log("Your total will be $" + r[0].price*amount);
+                                    var total = Number(r[0].price*amount).toFixed(2);
+                                    console.log("Your total will be $" + total);
                                     console.log("Thank you for shopping at Bamazon.");
                                     connection.end();
                                 }
